@@ -44,12 +44,14 @@ function PostIndex(props) {
                     {posts.map((post) => (
                       <tr key={post.id}>
                         <td className="text-center">
-                          <Image src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/posts/${post.image}`} className="rounded-3" width="150" alt="" />
+                          {/* <Image src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/app/public/posts/${post.image}`} className="rounded-3" width="150" height='100' alt="" /> */}
                         </td>
                         <td>{post.title}</td>
                         <td>{post.content}</td>
                         <td className="text-center">
-                          <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3">EDIT</button>
+                          <Link href={`/posts/edit/${post.id}`} legacyBehavior>
+                            <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3">EDIT</button>
+                          </Link>
                           <button className="btn btn-sm btn-danger border-0 shadow-sm mb-3">DELETE</button>
                         </td>
                       </tr>
